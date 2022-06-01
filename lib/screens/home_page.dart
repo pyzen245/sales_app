@@ -97,6 +97,56 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver{
                   child: Padding(
                     padding:  EdgeInsets.only(bottom:13.h),
                     child: ListTile(
+                      leading: GestureDetector(
+                        onTap: (){
+                          Dialog errorDialog = Dialog(
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.r)), //this right here
+                            child: Container(
+                              height: 312.h,
+                              width: 327.w,
+
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  SizedBox(
+                                    height: 6.h,
+                                  ),
+                                  Image.asset('assets/location.png'),
+                                  SizedBox(
+                                    height: 26.h,
+                                  ),
+                                  Text('Enable Your Location', style: TextStyle(color: blackcolor,fontSize: 24.sp),),
+                                  SizedBox(height: 8.h,),
+                                  Text('Please enable to use your location to show nearby services on the map', style: TextStyle(color: Color(0xff50555C),fontSize: 14.sp),
+                                  textAlign: TextAlign.center,),
+                                      SizedBox(
+                                        height: 44.h,
+                                      ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 24.0,right: 24,bottom: 15),
+                                    child: Container(
+                                      height: 53.h,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10.r),
+                                        color: bluecolor
+                                      ),
+                                      child: Center(
+                                        child: Text('Enable My Location',style: TextStyle(
+                                          color: whiteColor,fontSize: 18.sp
+                                        ),),
+                                      ),
+                                    ),
+                                  )
+
+
+
+                                ],
+                              ),
+                            ),
+                          );
+    showDialog(context: context, builder: (BuildContext context) => errorDialog);
+                        },
+                          child: Icon(Icons.location_on,color: bluecolor,)),
                         title: Text('Hello,Samantha',style: TextStyle(
                             color: nameTextColor,fontSize: 18.sp
                         ),),
